@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Dialog />
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <h1>NEWS</h1>
@@ -8,7 +9,6 @@
     </v-app-bar>
 
     <v-main app>
-      <Dialog />
       <router-view />
     </v-main>
 
@@ -22,12 +22,6 @@ import Dialog from './components/Dialog.vue';
 export default {
   name: 'App',
   components: { Dialog },
-  data() {
-    return {};
-  },
-  mounted() {
-    const message = this.$store.getters['dialog/message'];
-    console.log(message);
-  },
+  data: () => ({}),
 };
 </script>

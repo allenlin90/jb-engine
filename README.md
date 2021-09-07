@@ -39,7 +39,7 @@ npm run lint
 - [x] Create a Vue.js application
 - [x] Make use of Vuetify component framework to create the user interface
 - [x] You can find inspiration with the image below
-- [] Create a first page the UI displaying the different news headlines (List view)
+- [x] Create a first page the UI displaying the different news headlines (List view)
 - [] Create another page using Vue Router displaying more information about a selected news headline (Detail view)
 - [] Create a toolbar in a child functional component linked to each headline.
 - [] One button will redirect the user to the selected headline page
