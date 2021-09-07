@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height style="max-width:1264px">
+  <v-container style="max-width:1264px">
     <v-row justify="space-between">
       <v-col cols="6" align-self="center">
         <h1>HEADLINES</h1>

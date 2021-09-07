@@ -38,8 +38,7 @@ export default {
       default: 200,
     },
     width: {
-      type: Number,
-      default: 300,
+      default: '100%',
     },
   },
   computed: {
