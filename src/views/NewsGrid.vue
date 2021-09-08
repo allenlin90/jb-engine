@@ -10,15 +10,8 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-row justify="space-between">
-      <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-        v-for="post in news"
-        :key="post.newsId"
-      >
+    <v-row>
+      <v-col cols="12" sm="6" md="4" v-for="post in news" :key="post.newsId">
         <news-card
           :title="post.title"
           :subtitle="post.subtitle"
@@ -63,7 +56,31 @@ export default {
         content:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit.Accusantium saepe voluptate dolor ea dolores. olestias nam harum animi odio porro?',
       },
+      {
+        newsId: '4',
+        title: 'Motors',
+        subtitle: '2021/09/30',
+        img: 'https://source.unsplash.com/1600x900/?car',
+        content:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit.Accusantium saepe voluptate dolor ea dolores. olestias nam harum animi odio porro?',
+      },
+      {
+        newsId: '5',
+        title: 'Food',
+        subtitle: '2021/09/30',
+        img: 'https://source.unsplash.com/1600x900/?food',
+        content:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit.Accusantium saepe voluptate dolor ea dolores. olestias nam harum animi odio porro?',
+      },
     ],
   }),
+  async beforeCreate() {
+    this.$store.dispatch('overlay');
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$store.dispatch('overlay');
+    }, 3000);
+  },
 };
 </script>

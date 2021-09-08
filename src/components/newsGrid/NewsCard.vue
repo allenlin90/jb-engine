@@ -1,12 +1,18 @@
 <template>
   <v-card class="mx-auto" :width="width">
     <v-img height="200" :src="img"></v-img>
-    <v-card-title>{{ title }}</v-card-title>
+    <v-card-title>
+      <router-link :to="link" class="text-decoration-none black--text">{{
+        title
+      }}</router-link>
+      <v-spacer></v-spacer>
+      <v-icon @click="editPost(newsId)">mdi-pencil</v-icon>
+    </v-card-title>
     <v-card-subtitle>{{ subtitle }}</v-card-subtitle>
-    <v-card-text>{{ content }}</v-card-text>
-    <v-card-actions>
-      <v-btn :to="link" color="primary">Read More</v-btn>
-    </v-card-actions>
+    <v-card-text
+      >{{ content }}
+      <router-link :to="link">Read More...</router-link></v-card-text
+    >
   </v-card>
 </template>
 
@@ -44,6 +50,11 @@ export default {
   computed: {
     link() {
       return `/news/${this.newsId}`;
+    },
+  },
+  methods: {
+    editPost(id) {
+      console.log(`editing ${id}`);
     },
   },
 };

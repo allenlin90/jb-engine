@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NewsGrid from '../views/NewsGrid.vue';
+import NewsPost from '../views/NewsPost.vue';
+import History from '../views/History.vue';
+import Fallback from '../views/Fallback.vue';
 
 Vue.use(VueRouter);
 
@@ -8,7 +11,28 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    redirect: '/news',
+  },
+  {
+    path: '/news',
+    name: 'News',
     component: NewsGrid,
+  },
+  {
+    path: '/news/history',
+    name: 'History',
+    component: History,
+  },
+  {
+    path: '/news/:id',
+    name: 'NewsPost',
+    props: true,
+    component: NewsPost,
+  },
+  {
+    path: '*',
+    name: 'Fallback',
+    component: Fallback,
   },
   // {
   //   path: '/about',
