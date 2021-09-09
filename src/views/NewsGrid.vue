@@ -20,6 +20,21 @@
           :newsId="post.newsId"
         ></news-card>
       </v-col>
+      <v-col
+        cols="12"
+        sm="6"
+        md="4"
+        v-for="(post, index) in articles"
+        :key="`n${index}`"
+      >
+        <news-card
+          :title="post.title"
+          :subtitle="parseDateString(post.publishedAt)"
+          :img="post.urlToImage"
+          :content="post.discription"
+          :newsId="`n${index}`"
+        ></news-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -74,13 +89,24 @@ export default {
       },
     ],
   }),
+  computed: {
+    articles() {
+      return this.$store.getters['news/articles'];
+    },
+  },
+  methods: {
+    parseDateString(dateStr) {
+      const time = new Date(Date.parse(dateStr));
+      return `${time.getFullYear()}/${time.getMonth() + 1}/${time.getDate()}`;
+    },
+  },
   async beforeCreate() {
     this.$store.dispatch('overlay');
   },
-  mounted() {
-    setTimeout(() => {
-      this.$store.dispatch('overlay');
-    }, 3000);
+  async mounted() {
+    await this.$store.dispatch('news/articles');
+    await this.$store.dispatch('news/sources');
+    this.$store.dispatch('overlay');
   },
 };
 </script>

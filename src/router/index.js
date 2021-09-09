@@ -4,6 +4,7 @@ import NewsGrid from '../views/NewsGrid.vue';
 import NewsPost from '../views/NewsPost.vue';
 import History from '../views/History.vue';
 import Fallback from '../views/Fallback.vue';
+import store from '../store/index';
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,14 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+});
+
+router.afterEach((to, from) => {
+  store.dispatch('history/history', {
+    to: to.path,
+    from: from.path,
+    timestamp: new Date(),
+  });
 });
 
 export default router;

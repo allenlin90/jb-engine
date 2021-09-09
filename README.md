@@ -52,11 +52,11 @@ npm run lint
 ### Step 2
 This second step focuses on retrieving and managing data via a public API.
 
-- [ ] Make an API call to this URL [https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY) to get the latest headlines from different sources
-- [ ] Display the headlines in the UI
-- [ ] Make another API call to this URL [https://newsapi.org/v2/sources?apiKey=API_KEY](https://newsapi.org/v2/sources?apiKey=API_KEY) to get the list of sources
+- [x] Make an API call to this URL [https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY) to get the latest headlines from different sources
+- [x] Display the headlines in the UI
+- [x] Make another API call to this URL [https://newsapi.org/v2/sources?apiKey=API_KEY](https://newsapi.org/v2/sources?apiKey=API_KEY) to get the list of sources
 - [ ] Allow the user to select a source to display the filtered headlines
-- [ ] Add a search bar to be able to fetch and display only headlines with the included text. You will call this URL [https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY) , Please note the api should be called as and when the user types or press the key.
+- [ ] Add a search bar to be able to fetch and display only headlines with the included text. You will call this URL [https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY), Please note the api should be called as and when the user types or press the key.
 - [x] Add a spinner when the headlines are fetching
 - [ ] Make a wrong API call to this URL [https://newsapi.org/v2/sources?apiKey](https://newsapi.org/v2/sources?apiKey) and display an error message
 - [x] Use Vuex for the state management
@@ -81,8 +81,6 @@ This second step focuses on retrieving and managing data via a public API.
 2. Skeleton loading animation for images.
 3. Infinite scrolling could be applied according to design on user experience. 
 4. User behavior, logs, and records can be trasmitted with cookies and stored in database for further analysis and marketing purpose. However, we don't have a backend in this case, so all the user related data is kept in `localStorage` in this mockup.
-   1. Headline history
-   2. User profile and state
 5. The app can be deployed as PWA that it can 
    1. Allow users to browse stored information when offline.
    2. Push notification to users.
@@ -107,3 +105,5 @@ This second step focuses on retrieving and managing data via a public API.
    1. Premium functions (paid)
    2. Custom features (paid)
    3. API services
+6. Requesting service to 3rd party API can be embedded by server to keep API keys or credentails safe if the API service provider couldn't limit the domain to request. 
+7. Requesting domain guard must check with `href` or `origin` that includes `http` or `https` to prevent forgery by subdomains of malicious attacker such as `your.domain.malicious.com`. 
