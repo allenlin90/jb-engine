@@ -1,0 +1,206 @@
+{
+  "status": "ok",
+  "totalResults": 38,
+  "articles": [
+    {
+      "source": { "id": null, "name": "New York Times" },
+      "author": "Reid J. Epstein, Lisa Lerer",
+      "title": "Biden’s Covid-19 Vaccine Push Aligns Him With a Fed-Up, Vaccinated Majority - The New York Times",
+      "description": "As the president took forceful new steps to pressure Americans to get inoculated, he argued that they were urgently needed health measures. In his allies’ view, they were also good politics.",
+      "url": "https://www.nytimes.com/2021/09/10/us/politics/biden-vaccine.html",
+      "urlToImage": "https://static01.nyt.com/images/2021/09/10/us/politics/Vaccine-politics-1/Vaccine-politics-1-facebookJumbo.jpg",
+      "publishedAt": "2021-09-11T00:31:51Z",
+      "content": "The unvaccinated are beginning to feel discriminated against, she said while eating a salad outside the Fairfax Whole Foods. When you start to mandate people put something in their body, people get u… [+1949 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Alta Spells and Melissa Alonso, CNN",
+      "title": "Two Florida middle school students arrested in alleged school shooting plot, says sheriff - CNN",
+      "description": "Authorities in Lee County, Florida, thwarted a plot by two students to commit a school shooting, after a teacher shared a tip alleging a student had a gun in his book bag, according to Lee County Sheriff Carmine Marceno.",
+      "url": "https://www.cnn.com/2021/09/10/us/florida-lee-county-arrests-school-shooting-plot/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/210910191140-01-florida-middle-school-arrests-super-tease.jpg",
+      "publishedAt": "2021-09-10T23:51:00Z",
+      "content": "(CNN)Authorities in Lee County, Florida, thwarted a plot by two students to commit a school shooting, after a teacher shared a tip alleging a student had a gun in his book bag, according to Lee Count… [+2254 chars]"
+    },
+    {
+      "source": { "id": "the-washington-post", "name": "The Washington Post" },
+      "author": "Lori Rozsa, Valerie Strauss",
+      "title": "Education Dept. to investigate Florida over ban on mask mandates in schools - The Washington Post",
+      "description": "The moves mark the latest salvo in a legal back-and-forth over the controversial July 30 executive order by Florida Gov. Ron DeSantis (R), which prohibits mask mandates in schools.",
+      "url": "https://www.washingtonpost.com/education/2021/09/10/florida-school-masks-desantis-investigation/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/C4CW4DASNEI6ZOWKQ2YUJ7EKFU.jpg&w=1440",
+      "publishedAt": "2021-09-10T23:45:10Z",
+      "content": "The moves mark the latest salvo in a legal back-and-forth over a controversial July 30 executive order by DeSantis (R) prohibiting mask mandates in schools.\r\nStory continues below advertisement\r\nThe … [+4617 chars]"
+    },
+    {
+      "source": { "id": "fox-news", "name": "Fox News" },
+      "author": "Julius Young",
+      "title": "Britney Spears' boyfriend, Sam Asghari, claims he was hacked after photo of ring appears on his Instagram - Fox News",
+      "description": "The actor and model's Instagram account shared an image of a huge sparkler to his Story on Friday. According to internet sleuths, the inscription on the alleged band read, \"Lioness.\"",
+      "url": "https://www.foxnews.com/entertainment/britney-spears-boyfriend-sam-asghari-hacked-ring-photo",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2021/08/Sam_Asghari_Britney_Spears_Getty_Images.jpg",
+      "publishedAt": "2021-09-10T23:21:23Z",
+      "content": "Britney Spears longtime boyfriend, Sam Aghari, is claiming he was hacked after his social media account posted, and then, deleted a picture of a ring sending fans into a frenzy.\r\nThe actor and model'… [+3521 chars]"
+    },
+    {
+      "source": { "id": null, "name": "NPR" },
+      "author": "",
+      "title": "Epic Games V. Apple: A Breakdown Of The Split Ruling - NPR",
+      "description": "Fortnite maker Epic Games sued Apple over its App Store policies. Now, the federal court's decision could reshape the multibillion-dollar digital economy.",
+      "url": "https://www.npr.org/2021/09/10/1036043886/apple-fortnite-epic-games-ruling-explained",
+      "urlToImage": "https://media.npr.org/assets/img/2021/09/10/ap21246118261454_wide-5b6bee9320b0edd60effef183360ac5c32d38a7d.jpg?s=1400",
+      "publishedAt": "2021-09-10T23:15:47Z",
+      "content": "A federal judge on Friday ordered Apple to loosen some of the rules on its App Store for how payments are processed.\r\nPatrick Semansky/AP\r\nA federal judge on Friday issued a long-awaited ruling in Fo… [+6546 chars]"
+    },
+    {
+      "source": { "id": null, "name": "CNBC" },
+      "author": "Kevin Stankiewicz",
+      "title": "Cramer's lightning round: 'Go buy some Ethereum' instead of Hut 8 Mining - CNBC",
+      "description": "\"Mad Money\" host Jim Cramer rings the lightning round bell, which means he's giving his answers to callers' stock questions at rapid speed.",
+      "url": "https://www.cnbc.com/2021/09/10/cramers-lightning-round-go-buy-some-ethereum-instead-of-hut-8-mining.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/102079128-1539342565979105501689.jpg?v=1539342593",
+      "publishedAt": "2021-09-10T23:15:36Z",
+      "content": "Hut 8 Mining Corp.: \"Blockchain company, they're a dime a dozen, unfortunately. I wish it were more special than that. I don't think you have anything proprietary with that company. Go buy some Ether… [+696 chars]"
+    },
+    {
+      "source": { "id": null, "name": "New York Times" },
+      "author": "Ian Austen",
+      "title": "5 Takeaways From Canada’s Official Election Debates - The New York Times",
+      "description": "Prime Minister Justin Trudeau, who called the snap election two years ahead of schedule, was repeatedly attacked by the other four candidates.",
+      "url": "https://www.nytimes.com/2021/09/10/world/canada/canada-election-debate.html",
+      "urlToImage": "https://static01.nyt.com/images/2021/09/10/world/10canada-debates-01/10canada-debates-01-facebookJumbo.jpg",
+      "publishedAt": "2021-09-10T23:09:42Z",
+      "content": "While all the other leaders picked apart Mr. Trudeaus record he has made Indigenous issues a top priority they all agreed with his position that the process of replacing the 19th- century laws govern… [+995 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Marshall Cohen, Hannah Rabinowitz, Olanma Mang and Andrew Millman, CNN",
+      "title": "Seven more US Capitol riot defendants plead guilty, including armed man who threatened to shoot Pelosi - CNN",
+      "description": "Seven US Capitol riot defendants pleaded guilty on Friday to charges related to the January 6 insurrection, including one man who threatened to shoot House Speaker Nancy Pelosi.",
+      "url": "https://www.cnn.com/2021/09/10/politics/capitol-insurrection-guilty-pleas/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/210727153745-capitol-riot-file-0106-super-tease.jpg",
+      "publishedAt": "2021-09-10T22:40:00Z",
+      "content": null
+    },
+    {
+      "source": { "id": null, "name": "ESPN" },
+      "author": "Heather Dinich",
+      "title": "American Athletic Conference willing to let departing teams go before 2024 for higher exit fee - ESPN",
+      "description": "The American Athletic Conference will be willing to negotiate a higher exit fee to accommodate earlier departures of UCF, Cincinnati and Houston to the Big 12 Conference, AAC commissioner Mike Aresco told ESPN on Friday.",
+      "url": "https://www.espn.com/college-football/story/_/id/32184336/american-athletic-conference-willing-let-departing-teams-go-2024-higher-exit-fee",
+      "urlToImage": "https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2015%2F1005%2Fr14208_2_1296x729_16%2D9.jpg",
+      "publishedAt": "2021-09-10T22:08:59Z",
+      "content": "The American Athletic Conference will be willing to negotiate a higher exit fee to accommodate earlier departures of UCF, Cincinnati and Houston to the Big 12 Conference, AAC commissioner Mike Aresco… [+3729 chars]"
+    },
+    {
+      "source": { "id": null, "name": "NPR" },
+      "author": "",
+      "title": "Unvaccinated People Are 11 Times More Likely To Die Of COVID-19, New Research Finds - NPR",
+      "description": "The COVID-19 vaccines continue to provide powerful protection, even against the delta variant, the CDC said. It also found that vaccinated people were 10 times less likely to be hospitalized.",
+      "url": "https://www.npr.org/2021/09/10/1036023973/covid-19-unvaccinated-deaths-11-times-more-likely",
+      "urlToImage": "https://media.npr.org/assets/img/2021/09/10/gettyimages-1230127767_wide-207216018d5875dc9308c282ed20aee61a3a2d46.jpg?s=1400",
+      "publishedAt": "2021-09-10T21:43:54Z",
+      "content": "The CDC's new research found that those who were vaccinated were nearly five times less likely to get infected, 10 times less likely to get so sick they ended up in the hospital and 11 times less lik… [+1860 chars]"
+    },
+    {
+      "source": { "id": null, "name": "New York Times" },
+      "author": "Ellen Barry",
+      "title": "It’s a ‘Brawl in Beantown,’ as Progressive Allies Clash in the Boston Mayor’s Race - The New York Times",
+      "description": "For years, they were “sisters in service,” taking on the old guard and boosting one another’s careers. A rare open mayoral seat changed that.",
+      "url": "https://www.nytimes.com/2021/09/10/us/boston-mayoral-election.html",
+      "urlToImage": "https://static01.nyt.com/images/2021/09/08/us/00BRAWL-top/00BRAWL-top-facebookJumbo.jpg",
+      "publishedAt": "2021-09-10T21:37:18Z",
+      "content": "She lights up the board demographically, Mr. Paleologos said.\r\nBoston is growing, according to recent census data, while its percentage of non-Hispanic white residents is declining, dipping from 47 p… [+1759 chars]"
+    },
+    {
+      "source": { "id": null, "name": "HuffPost" },
+      "author": "Associated Press",
+      "title": "Ben Affleck And Jennifer Lopez Make Their Red Carpet Debut In Venice - HuffPost",
+      "description": "The stars made things red carpet official (again) after rekindling their romance in May.",
+      "url": "https://www.huffpost.com/entry/ben-affleck-jennifer-lopez-red-carpet-debut-venice_n_613bc6cbe4b00ff836ecb0c2",
+      "urlToImage": "https://img.huffingtonpost.com/asset/613bc7d041000077e7838ef2.jpeg?cache=m5za8mj2tf&ops=1778_1000",
+      "publishedAt": "2021-09-10T21:08:00Z",
+      "content": "NEW YORK (AP) After weeks of smooching on yachts and holding hands on intimate walks, Jennifer Lopez and old flame turned new again Ben Affleck made it official Friday night on the red carpet for the… [+982 chars]"
+    },
+    {
+      "source": { "id": null, "name": "DallasCowboys.com" },
+      "author": null,
+      "title": "La'el Collins Suspended Five Games By The NFL - DallasCowboys.com",
+      "description": "The NFL announced a five-game suspension for the veteran Cowboys right tackle.",
+      "url": "https://www.dallascowboys.com/news/la-el-collins-suspended-five-games-by-the-nfl",
+      "urlToImage": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/cowboys/m2yyc7hrrdgrqmvtaz4v",
+      "publishedAt": "2021-09-10T20:55:31Z",
+      "content": "FRISCO, Texas Starting right tackle La'el Collins has been suspended without pay for the next five games for violating the NFL Policy on Substances of Abuse, the NFL announced Friday.\r\nCollins will b… [+1034 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Eurogamer.net" },
+      "author": "Matt Wales",
+      "title": "Twitch files lawsuit against two hate raiders - Eurogamer.net",
+      "description": null,
+      "url": "https://www.eurogamer.net/articles/2021-09-10-twitch-files-lawsuit-against-two-hate-raiders",
+      "urlToImage": "https://d2skuhm0vrry40.cloudfront.net/2021/articles/2021-09-10-22-09/twitch-files-lawsuit-against-two-hate-raiders-1631308186012.jpg/EG11/resize/1200x-1/twitch-files-lawsuit-against-two-hate-raiders-1631308186012.jpg",
+      "publishedAt": "2021-09-10T20:52:00Z",
+      "content": "Following a successful streamer strike earlier this month in protest of Twitch's continued failure to adequately tackle the increasingly prevalent phenomenon of hate raiding, the company has filed a … [+2596 chars]"
+    },
+    {
+      "source": { "id": "nbc-news", "name": "NBC News" },
+      "author": "Erik Ortiz, Anthony Cusumano, Haylee Barber, Allison Burstein, Alan Cohen, Carol Gable",
+      "title": "Unsolved Murdaugh shootings yield misconduct claim, conflicting accounts and questions - NBC News",
+      "description": "On June 7, deputies in South Carolina discovered a grisly scene at one family's hunting lodge property: Paul and Margaret \"Maggie\" Murdaugh were shot to death.",
+      "url": "https://www.nbcnews.com/news/us-news/unsolved-murdaugh-shootings-yield-misconduct-claim-conflicting-account-rcna1937",
+      "urlToImage": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2021-09/210906-alex-murdaugh-mn-1130-3d4e12.jpg",
+      "publishedAt": "2021-09-10T20:32:19Z",
+      "content": "In the wooded darkness, deputies in South Carolina's coastal Lowcountry cut across the sprawling hunting lodge property known by locals as Moselle. There, on the night of June 7, they uncovered a gri… [+9750 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Space.com" },
+      "author": "Meghan Bartels",
+      "title": "NASA's Perseverance rover has taken the 1st steps in decades-long dream of Mars sample return - Space.com",
+      "description": "Perseverance's Mars rock samples may even hide salt crystal time capsules.",
+      "url": "https://www.space.com/perseverance-mars-rover-first-two-samples",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/Phxj4Z77PkqMRXEsknUJFQ-1200-80.jpg",
+      "publishedAt": "2021-09-10T20:24:20Z",
+      "content": "NASA's Perseverance rover\r\n on Mars has begun its out-of-this-world rock collection.\r\nThe rover, which is designed to search for signs of ancient life on Mars\r\n and to package up material for a futur… [+5999 chars]"
+    },
+    {
+      "source": { "id": "nbc-news", "name": "NBC News" },
+      "author": "Minyvonne Burke, Diana Dasrath",
+      "title": "Dodgers' Trevor Bauer to miss rest of season due to MLB sexual assault investigation - NBC News",
+      "description": "Los Angeles Dodgers pitcher Trevor Bauer will miss the rest of the season as Major League Baseball continues investigating allegations of sexual assault.",
+      "url": "https://www.nbcnews.com/news/sports/dodgers-trevor-bauer-miss-rest-season-due-mlb-sexual-assault-n1278945",
+      "urlToImage": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2021_36/3504976/210910-trevor-bauer-al-1446.jpg",
+      "publishedAt": "2021-09-10T20:23:41Z",
+      "content": "Los Angeles Dodgers pitcher Trevor Bauer will miss the rest of the season as Major League Baseball continues its investigation into allegations he sexually assaulted a woman.\r\n\"Today Mr. Bauer agreed… [+2515 chars]"
+    },
+    {
+      "source": { "id": "fox-news", "name": "Fox News" },
+      "author": "Andrew Miller",
+      "title": "Psaki stands by having employer vaccine mandate while illegal immigrants get a pass - Fox News",
+      "description": "White House Press Secretary Jen Psaki dismissed a question from Fox News’ Peter Doocy on why American businesses with 100 or more employees are required to vaccinate workers but migrants at the southern border are not required to vaccinate.",
+      "url": "https://www.foxnews.com/politics/psaki-stands-by-employer-vaccine-mandate-while-illegal-immigrants-remain-unvaccinated-thats-correct",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2021/09/jen-psaki-thumbnail.png",
+      "publishedAt": "2021-09-10T20:11:00Z",
+      "content": "White House Press Secretary Jen Psaki dismissed a question from Fox News Peter Doocy on why American businesses with 100 or more employees are required to vaccinate workers but migrants at the southe… [+1509 chars]"
+    },
+    {
+      "source": { "id": null, "name": "NASA" },
+      "author": null,
+      "title": "NASA Awards Launch Services Contract for GOES-U Mission - NASA",
+      "description": "NASA has selected Space Exploration Technologies (SpaceX) of Hawthorne, California, to provide launch services for the Geostationary Operational Environmental Satellite-U (GOES-U) mission.",
+      "url": "https://www.nasa.gov/press-release/nasa-awards-launch-services-contract-for-goes-u-mission/",
+      "urlToImage": "http://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb_0.jpg",
+      "publishedAt": "2021-09-10T20:04:47Z",
+      "content": null
+    },
+    {
+      "source": { "id": null, "name": "MacRumors" },
+      "author": "Juli Clover",
+      "title": "What to Expect at the September 14 Apple Event: iPhone 13, Apple Watch Series 7, and More - MacRumors",
+      "description": "Apple is holding its annual iPhone-centric event on Tuesday, September 14, and like last year, it will be entirely digital. We've been hearing...",
+      "url": "https://www.macrumors.com/guide/apple-event-september-14-what-to-expect/",
+      "urlToImage": "https://images.macrumors.com/t/Hj9inct77pg8L2bLltZYXP7mhWM=/3572x/https://images.macrumors.com/article-new/2021/09/9.14.21-what-to-expect-thumb-blue.jpg",
+      "publishedAt": "2021-09-10T20:04:09Z",
+      "content": "Apple is holding its annual iPhone-centric event on Tuesday, September 14, and like last year, it will be entirely digital. We've been hearing rumors about what's coming for many months now, so we ha… [+9985 chars]"
+    }
+  ]
+}
