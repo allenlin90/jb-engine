@@ -44,7 +44,7 @@ npm run lint
 6. Create a toolbar in a child functional component linked to each headline.
    1. - [ ] One button will redirect the user to the selected headline page
    2. - [ ] A second button opens a popup/dialog with a text field to modify the headline's title. A validator is expected to prevent the new title to be too long.
-7. - [ ] Display a history of the visited headlines
+7. - [x] Display a history of the visited headlines
 8. Show off your CSS skills by making it look: 
    1. - [x] Nice (Interface Design)
    2. - [x] Responsive (on Mobile, Tablet and Desktop)
@@ -56,9 +56,9 @@ This second step focuses on retrieving and managing data via a public API.
 - [x] Display the headlines in the UI
 - [x] Make another API call to this URL [https://newsapi.org/v2/sources?apiKey=API_KEY](https://newsapi.org/v2/sources?apiKey=API_KEY) to get the list of sources
 - [ ] Allow the user to select a source to display the filtered headlines
-- [ ] Add a search bar to be able to fetch and display only headlines with the included text. You will call this URL [https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY), Please note the api should be called as and when the user types or press the key.
+- [x] Add a search bar to be able to fetch and display only headlines with the included text. You will call this URL [https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY), Please note the api should be called as and when the user types or press the key.
 - [x] Add a spinner when the headlines are fetching
-- [ ] Make a wrong API call to this URL [https://newsapi.org/v2/sources?apiKey](https://newsapi.org/v2/sources?apiKey) and display an error message
+- [x] Make a wrong API call to this URL [https://newsapi.org/v2/sources?apiKey](https://newsapi.org/v2/sources?apiKey) and display an error message
 - [x] Use Vuex for the state management
 
 <img src="https://github.com/jb-engine/challenges/raw/master/vue/challenge-example.png">
@@ -74,17 +74,24 @@ This second step focuses on retrieving and managing data via a public API.
    3. News card
       1. "Read more" to local link to news details.
       2. A button next to "pencial-edit" to visit original source.
+   4. Delayed search is enabled at `500ms` to prevent abusing API request when the user is still typing.
+4. `History` route
+   1. The timeline follow a descending chronological order and grouped by date.
+   2. Keep the records in `localStorage` in router navigation guard.
+   3. User can choose to delete certain record or all records at once.
+   4. To ensure data is still kept, `localStorage` is not cleared directly. 
 
 
 ### Vue App Structure
-1. `App.vue` is the main entry point which contains `router-view` to render components on different routes with a defined layout. The followings are the main view in the app.
+1. `@` is added as the alias for `src` folder for file path in `vue.config.js`.
+2. `App.vue` is the main entry point which contains `router-view` to render components on different routes with a defined layout. The followings are the main view in the app.
    1. News
    2. News Detail
    3. History
-2. `NewsGrid` is the main component to show the list of news. Each news is rendered in a child component `NewsCard`. 
-3. Users can check news in details on `NewsPost` access with `/news/:id`, while `id` is provided as the `props` to the component.
-4. Global `OverlayLoader` can be triggered when the component is fetching/loading data.
-5. Global `Dialog` can be triggered to show notification or error. 
+3. `NewsGrid` is the main component to show the list of news. Each news is rendered in a child component `NewsCard`. 
+4. Users can check news in details on `NewsPost` access with `/news/:id`, while `id` is provided as the `props` to the component.
+5. Global `OverlayLoader` can be triggered when the component is fetching/loading data.
+6. Global `Dialog` can be triggered to show notification or error. 
 
 
 ### Issues to improve
@@ -105,9 +112,10 @@ This second step focuses on retrieving and managing data via a public API.
    1.  Providing suggeted routes
    2.  Redirect users after a certain amount of time (5 minutes)
 10. Code source control can be separated to different branches in `git` such as `develop` and `features` if the app or team is larger that requires coordination.
-11. NewsAPI has limitation of developer plan and have limited request 1,000 requests / day. To prevent API abuse, I keep the data in `assets` as JSON files for developing purpose.
+11. NewsAPI has limitation of developer plan and have limited request 1,000 requests / day. To prevent API abuse, the data in `assets` as JSON files for developing purpose in case that the APIKEY is out of quota.
 12. `Popover` used in `NewsGrid` could be more generic as a universal comopnent.
 13. The "Filter" feature to select source for headlines could be more advanced by applying multiple options and porperties.
+14. Some syntax isn't correct as having issues with eslint and code formatting.
 
 
 ### Concerns and uncetainties
