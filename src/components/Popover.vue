@@ -55,7 +55,7 @@ export default {
     },
   },
   data: () => ({
-    menu: true,
+    menu: false,
     fav: true,
     message: false,
     hints: true,
