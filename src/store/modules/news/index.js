@@ -1,42 +1,86 @@
+import localArticles from '@/assets/headlines.json';
+import localSources from '@/assets/newsSource.json';
+
 export default {
   namespaced: true,
   state() {
+    const apiKey = 'b397a712eedf498d910d54230c1ee4a3';
     return {
-      newsSource:
-        'https://newsapi.org/v2/top-headlines?country=us&apiKey=b397a712eedf498d910d54230c1ee4a3',
+      endpoints: {
+        topHeadlinesUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&country=us`,
+        sourceUrl: `https://newsapi.org/v2/sources?apiKey=${apiKey}`,
+        queryUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`,
+        errorUrl: 'https://newsapi.org/v2/sources?apiKey',
+      },
+      options: {
+        category: '',
+        country: '',
+        id: '',
+        language: '',
+        source: '',
+      },
       articles: [],
-      sourceList:
-        'https://newsapi.org/v2/sources?apiKey=b397a712eedf498d910d54230c1ee4a3',
       sources: [],
+      searchResult: [],
     };
   },
   actions: {
-    async articles(context) {
+    async errorRequest(context) {
       try {
-        const { newsSource } = context.getters;
-        const { status, totalResults, articles } = await fetch(
-          newsSource,
-        ).then((res) => res.json());
+        await fetch(context.endpoints.errorUrl);
+      } catch (error) {
+        context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+        context.dispatch(
+          'dialog/message',
+          {
+            message:
+              'Make a wrong API call to this URL https://newsapi.org/v2/sources?apiKey and display an error message',
+            title: 'Intended failure',
+          },
+          { root: true },
+        );
+      }
+    },
+    async getArticles(context) {
+      let state = false;
+      try {
+        const { topHeadlinesUrl } = context.getters.endpoints;
+
+        const response = await fetch(topHeadlinesUrl).then((res) => res.json());
+
+        const { status, totalResults, articles } = response;
+
         if (status === 'ok' && totalResults) {
           context.commit('articles', articles);
+          state = true;
+        } else if (status === 'error') {
+          context.commit('articles', localArticles.articles);
+          throw new Error(response.message);
         }
       } catch (error) {
         context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+
         context.dispatch(
           'dialog/message',
           { message: error.message, title: 'Failed loading articles' },
           { root: true },
         );
       }
+      return state;
     },
-    async sources(context) {
+    async getSources(context) {
+      let state = false;
       try {
-        const { sourceList } = context.getters;
-        const { status, sources } = await fetch(sourceList).then((res) => {
-          res.json();
-        });
+        const { sourceUrl } = context.getters.endpoints;
+        const response = await fetch(sourceUrl).then((res) => res.json());
+        const { status, sources, message } = response;
+
         if (status === 'ok' && sources.length) {
           context.commit('sources', sources);
+          state = true;
+        } else if (status === 'error') {
+          context.commit('sources', localSources.sources);
+          throw new Error(message);
         }
       } catch (error) {
         context.dispatch('dialog/isShown', { isShown: true }, { root: true });
@@ -46,25 +90,73 @@ export default {
           { root: true },
         );
       }
+      return state;
+    },
+    async searchNews(context, query) {
+      let state = false;
+      try {
+        const { queryUrl } = context.getters.endpoints;
+
+        const { status, articles, message } = await fetch(
+          `${queryUrl}&q=${query}`,
+        ).then((res) => res.json());
+
+        if (status === 'ok') {
+          context.commit('searchResult', articles);
+          state = true;
+        } else if (status === 'error') {
+          throw new Error(message);
+        }
+      } catch (error) {
+        context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+        context.dispatch(
+          'dialog/message',
+          { message: error.message, title: 'Failed to search articles' },
+          { root: true },
+        );
+      }
+      return state;
     },
   },
   mutations: {
     articles(state, articles) {
-      state.articles = articles;
+      const indexedArticles = articles.map((article, index) => {
+        const instance = { ...article };
+        if (!instance.id) {
+          instance.id = String(instance.source.id) + String(index);
+        }
+        return instance;
+      });
+      state.articles = indexedArticles;
     },
     sources(state, sources) {
       state.sources = sources;
     },
+    searchResult(state, articles) {
+      if (articles.length) {
+        const indexedArticles = articles.map((article, index) => {
+          const instance = { ...article };
+          if (!instance.id) {
+            instance.id = String(instance.source.id) + String(index);
+          }
+          return instance;
+        });
+        state.searchResult = indexedArticles;
+      }
+    },
   },
   getters: {
-    newsSource(state) {
-      return state.newsSource;
-    },
-    sourceList(state) {
-      return state.sourceList;
+    endpoints(state) {
+      return state.endpoints;
     },
     articles(state) {
       return state.articles;
+    },
+    sources(state) {
+      return state.sources;
+    },
+    searchResult(state) {
+      return state.searchResult;
     },
   },
 };
