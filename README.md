@@ -66,10 +66,21 @@ This second step focuses on retrieving and managing data via a public API.
 ### Features
 1. Side drawer all users to navigate.
 2. Provide a simple, direct view for users to browse news. 
+   1. Help users search for certain headline
+   2. Filter resource into preferrable sorted list
+3. `News` route
+   1. "Filter" button is disabled by default and will be activated after the source list is fetched.
+   2. A button fixed at bottom right corner to allow users to navigate to the top.
+   3. News card
+      1. "Read more" to local link to news details.
+      2. A button next to "pencial-edit" to visit original source.
 
 
 ### Vue App Structure
-1. `App.vue` is the main entry point which contains `router-view` to render components on different routes with a defined layout.
+1. `App.vue` is the main entry point which contains `router-view` to render components on different routes with a defined layout. The followings are the main view in the app.
+   1. News
+   2. News Detail
+   3. History
 2. `NewsGrid` is the main component to show the list of news. Each news is rendered in a child component `NewsCard`. 
 3. Users can check news in details on `NewsPost` access with `/news/:id`, while `id` is provided as the `props` to the component.
 4. Global `OverlayLoader` can be triggered when the component is fetching/loading data.
@@ -78,6 +89,8 @@ This second step focuses on retrieving and managing data via a public API.
 
 ### Issues to improve
 1. Add smother transition animations.
+   1. View teir
+   2. Component teir
 2. Skeleton loading animation for images.
 3. Infinite scrolling could be applied according to design on user experience. 
 4. User behavior, logs, and records can be trasmitted with cookies and stored in database for further analysis and marketing purpose. However, we don't have a backend in this case, so all the user related data is kept in `localStorage` in this mockup.
@@ -88,6 +101,13 @@ This second step focuses on retrieving and managing data via a public API.
 6. Some components could be more "generic" to be used for different routes and purposes.
 7. Security strategy isn't carefully concerned, as there's no backend structure to refer. 
 8. However, XXS and scripting injection could be an issue when allowing users to edit contents, especially if this app is considered a CMS. 
+9.  A dedicated 404 catch all page
+   1.  Providing suggeted routes
+   2.  Redirect users after a certain amount of time (5 minutes)
+10. Code source control can be separated to different branches in `git` such as `develop` and `features` if the app or team is larger that requires coordination.
+11. NewsAPI has limitation of developer plan and have limited request 1,000 requests / day. To prevent API abuse, I keep the data in `assets` as JSON files for developing purpose.
+12. `Popover` used in `NewsGrid` could be more generic as a universal comopnent.
+13. The "Filter" feature to select source for headlines could be more advanced by applying multiple options and porperties.
 
 
 ### Concerns and uncetainties
@@ -107,3 +127,4 @@ This second step focuses on retrieving and managing data via a public API.
    3. API services
 6. Requesting service to 3rd party API can be embedded by server to keep API keys or credentails safe if the API service provider couldn't limit the domain to request. 
 7. Requesting domain guard must check with `href` or `origin` that includes `http` or `https` to prevent forgery by subdomains of malicious attacker such as `your.domain.malicious.com`. 
+8. Instead redirect the users to the origin source of the app, is there any approach to keep the user stays with the app?
