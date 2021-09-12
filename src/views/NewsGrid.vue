@@ -14,7 +14,12 @@
         ></v-text-field>
       </v-col>
       <v-col cols="6" sm="2" align-self="center" order="2" order-sm="4">
-        <filter-pop v-if="activeFilter" :rotate="rotate"> </filter-pop>
+        <filter-pop
+          v-if="activeFilter"
+          :rotate="state.rotate"
+          @fetch="state.source = true"
+        >
+        </filter-pop>
       </v-col>
     </v-row>
     <v-row v-if="!!articlesToRender.length">
@@ -55,8 +60,8 @@
       </v-col>
     </v-row>
     <v-btn
-      v-show="fab"
-      :fab="fab"
+      v-show="state.fab"
+      :fab="state.fab"
       bottom
       right
       fixed
@@ -77,14 +82,18 @@ export default {
   components: { NewsCard, FilterPop },
   name: 'Home',
   data: () => ({
-    rotate: false,
-    fab: false,
+    state: {
+      rotate: false,
+      fab: false,
+      source: false,
+    },
     keyword: '',
     search: '',
     timer: null,
   }),
   watch: {
     search(value) {
+      this.source = false;
       if (value) {
         if (this.timer) {
           clearTimeout(this.timer);
@@ -97,7 +106,7 @@ export default {
   },
   computed: {
     articlesToRender() {
-      if (this.search) {
+      if (this.search || this.state.source) {
         return this.searchResult;
       }
       return this.articles;
@@ -124,7 +133,7 @@ export default {
     onScroll(e) {
       if (typeof window === 'undefined') return;
       const top = window.pageYOffset || e.target.scrollTop || 0;
-      this.fab = top > 20;
+      this.state.fab = top > 20;
     },
     ...mapActions('news', [
       'getArticles',
@@ -138,17 +147,17 @@ export default {
   },
   async mounted() {
     if (!this.articles.legnth) {
-      // await this.getArticles();
+      await this.getArticles();
     }
     this.$store.dispatch('overlay');
 
-    this.rotate = true;
+    this.state.rotate = true;
     if (!this.sources.length) {
-      // await this.getSources();
+      await this.getSources();
     }
-    this.rotate = false;
+    this.state.rotate = false;
 
-    // await this.errorRequest();
+    await this.errorRequest();
   },
 };
 </script>

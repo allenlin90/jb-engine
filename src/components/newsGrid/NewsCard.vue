@@ -37,10 +37,10 @@
         @external="recordHistory(url)"
       >
         <template v-slot:link>
-          <v-icon color="white">mdi-book</v-icon>
+          <v-icon>mdi-book</v-icon>
         </template>
         <template v-slot>
-          <v-icon color="white">mdi-pencil</v-icon>
+          <v-icon>mdi-pencil</v-icon>
         </template>
       </button-group>
     </v-card-subtitle>

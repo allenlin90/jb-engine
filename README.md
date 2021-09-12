@@ -56,7 +56,7 @@ This second step focuses on retrieving and managing data via a public API.
 - [x] Make an API call to this URL [https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY) to get the latest headlines from different sources
 - [x] Display the headlines in the UI
 - [x] Make another API call to this URL [https://newsapi.org/v2/sources?apiKey=API_KEY](https://newsapi.org/v2/sources?apiKey=API_KEY) to get the list of sources
-- [ ] Allow the user to select a source to display the filtered headlines
+- [x] Allow the user to select a source to display the filtered headlines
 - [x] Add a search bar to be able to fetch and display only headlines with the included text. You will call this URL [https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY](https://newsapi.org/v2/top-headlines?q=SEARCH_TEXT&apiKey=API_KEY), Please note the api should be called as and when the user types or press the key.
 - [x] Add a spinner when the headlines are fetching
 - [x] Make a wrong API call to this URL [https://newsapi.org/v2/sources?apiKey](https://newsapi.org/v2/sources?apiKey) and display an error message
@@ -66,17 +66,20 @@ This second step focuses on retrieving and managing data via a public API.
 
 ### Features
 1. Side drawer allow users to navigate.
-2. Provide a simple, direct view for users to browse news. 
-   1. Help users search for certain headline
-   2. Filter resource into preferrable sorted list
+2. Provide a simple, direct view for users to find news sources. 
+   1. Help users search for certain headline.
+   2. Filter resource into preferrable sorted list.
+   3. An error message calling to "https://newsapi.org/v2/sources?apiKey" will be shown.
 3. `News` route
-   1. "Filter" button is disabled by default and will be activated after the source list is fetched.
+   1. "Filter" button is disabled by default and will be activated after the options from source list is fetched.
+      1. Users can choose category of sources by their properties.
+      2. Users can type and filter out desirable sources from the list.
+      3. Source list shows source name and the information from the selected property.
    2. A button fixed at bottom right corner to allow users to navigate to the top.
    3. News card
-      1. "Read more" to local link to news details.
-      2. A button with "pencil-edit" icon to allow editing the headline with limited length of text.
-      3. A button next to "pencil-edit" to visit original source.
-   4. Search feature 
+      1. A button with "pencil-edit" icon to allow editing the headline with limited length of text.
+      2. A button next to "pencil-edit" to visit original source.
+   4. Search feature
       1. Delayed search is enabled at `500ms` to prevent abusing API request when the user is still typing.
       2. Query text is encoded by default `encodeURI` in case the users give illegal URL characters according to [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt).
 4. `History` route
@@ -84,7 +87,9 @@ This second step focuses on retrieving and managing data via a public API.
    2. Keep the records in `localStorage` in router navigation guard.
    3. User can choose to delete certain record or all records at once.
    4. To ensure data is still kept, `localStorage` is not cleared directly. 
-5. Issues on 3rd party API (NewsAPI)
+5. `News/:id` route
+   1. ~~Deprecated due to misunderstanding - "Read more" to local link to news details.~~
+6. Issues on 3rd party API (NewsAPI)
    1. NewsAPI has limitation on its developer plan and have limited request to only 1,000 requests / day. To prevent API abuse, the data in `assets` as JSON files for developing purpose in case that the APIKEY is out of quota. 
    2. NewsAPI sometimes will be blocked by `cors` setting which couldn't be handled by pure frontend (A proxy could be applied to solve this issue. However, a better service integration on both front and back should be considered).
 
@@ -98,8 +103,8 @@ This second step focuses on retrieving and managing data via a public API.
 3. `NewsGrid` is the main component to show the list of news. Each news is rendered in a child component `NewsCard`. 
 4. Global `OverlayLoader` can be triggered when the component is fetching/loading data.
 5. Global `Dialog` can be triggered to show notification or error. 
-6. Deprecated component - Users can check news in details on `NewsPost` access with `/news/:id`, while `id` is provided as the `props` to the component.
-7. Create `ButtonGroup` for the buttons on `NewsCard`.
+6. ~~Deprecated component - Users can check news in details on `NewsPost` access with `/news/:id`, while `id` is provided as the `props` to the component.~~
+7. Create functional component `ButtonGroup` for the buttons on `NewsCard`.
 
 
 ### Issues to improve
@@ -117,6 +122,7 @@ This second step focuses on retrieving and managing data via a public API.
 7. Error messages can be optimized for non-tech users. Some scenarios for API request handling issue messages can be more friendly to users.
 8. Misunderstanding to read details of the news. Instead of fetching the details, the app is supposed to redirect the user to the source of the article.
 9. Truncation one headline and content can be more responsive.
+10. "Actions" in "News" module in vuex should be more DRY. 
 
 #### App structure 
 1. The app can be deployed as PWA that it can 
@@ -127,7 +133,7 @@ This second step focuses on retrieving and managing data via a public API.
 3.  Code source control can be separated to different branches in `git` such as `develop` and `features` if the app or team is larger that requires much more coordination.
 
 #### App Security 
-1. Security strategy isn't carefully concerned, as there's no backend structure to refer. In this case, the API key is exposed in the frontend code directly.
+1. Security strategy isn't carefully concerned. It will be beneficial to have more information on the backend structure. In this case, the API key is exposed in the frontend code directly.
 2. However, XXS and scripting injection could be an issue when allowing users to edit contents, especially if this app is considered a CMS (Content Management System). 
 
 

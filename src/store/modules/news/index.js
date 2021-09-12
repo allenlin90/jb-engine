@@ -8,16 +8,10 @@ export default {
     return {
       endpoints: {
         topHeadlinesUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&country=us`,
+        queryTopHeadlinesUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`,
         sourceUrl: `https://newsapi.org/v2/sources?apiKey=${apiKey}`,
         queryUrl: `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`,
         errorUrl: 'https://newsapi.org/v2/sources?apiKey',
-      },
-      options: {
-        category: '',
-        country: '',
-        id: '',
-        language: '',
-        source: '',
       },
       articles: [],
       sources: [],
@@ -118,6 +112,36 @@ export default {
       }
       return state;
     },
+    async searchBySource(context, source) {
+      let state = false;
+      try {
+        const { queryTopHeadlinesUrl } = context.getters.endpoints;
+        const response = await fetch(
+          `${queryTopHeadlinesUrl}&sources=${source.id}`,
+        ).then((res) => res.json());
+
+        const { status, totalResults, articles } = response;
+
+        if (status === 'ok' && totalResults) {
+          context.commit('searchResult', articles);
+          state = true;
+        } else if (status === 'error') {
+          context.commit('articles', localArticles.articles);
+          throw new Error(response.message);
+        }
+      } catch (error) {
+        context.dispatch('dialog/toggle', { isShown: true }, { root: true });
+        context.dispatch(
+          'dialog/message',
+          {
+            message: error.message,
+            title: `Failed loading from ${source.name}`,
+          },
+          { root: true },
+        );
+      }
+      return state;
+    },
     async editHeadline(context, headline) {
       // this can be preseved to interact with server
       context.commit('editHeadline', headline);
@@ -171,6 +195,10 @@ export default {
       return state.articles;
     },
     sources(state) {
+      if (!state.sources.length) {
+        // use only in testing
+        return localSources.sources;
+      }
       return state.sources;
     },
     searchResult(state) {

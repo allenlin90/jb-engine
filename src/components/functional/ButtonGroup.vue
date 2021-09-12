@@ -1,7 +1,7 @@
 <template functional>
   <div class="btn-group" role="group" aria-label="Basic example">
     <a
-      class="btn btn-secondary text-white"
+      class="btn btn-light text-white"
       :href="props.link"
       target="_blank"
       @click="listeners['external']"
@@ -10,7 +10,7 @@
         {{ props.link }}
       </slot>
     </a>
-    <button class="btn btn-secondary" @click="listeners['edit']">
+    <button class="btn btn-light" @click="listeners['edit']">
       <slot>Edit</slot>
     </button>
   </div>
