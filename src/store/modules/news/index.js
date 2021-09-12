@@ -29,7 +29,7 @@ export default {
       try {
         await fetch(context.endpoints.errorUrl);
       } catch (error) {
-        context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+        context.dispatch('dialog/toggle', { isShown: true }, { root: true });
         context.dispatch(
           'dialog/message',
           {
@@ -58,7 +58,7 @@ export default {
           throw new Error(response.message);
         }
       } catch (error) {
-        context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+        context.dispatch('dialog/toggle', { isShown: true }, { root: true });
 
         context.dispatch(
           'dialog/message',
@@ -72,8 +72,9 @@ export default {
       let state = false;
       try {
         const { sourceUrl } = context.getters.endpoints;
-        const response = await fetch(sourceUrl).then((res) => res.json());
-        const { status, sources, message } = response;
+        const { status, sources, message } = await fetch(
+          sourceUrl,
+        ).then((res) => res.json());
 
         if (status === 'ok' && sources.length) {
           context.commit('sources', sources);
@@ -83,7 +84,7 @@ export default {
           throw new Error(message);
         }
       } catch (error) {
-        context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+        context.dispatch('dialog/toggle', { isShown: true }, { root: true });
         context.dispatch(
           'dialog/message',
           { message: error.message, title: 'Failed loading sources' },
@@ -98,7 +99,7 @@ export default {
         const { queryUrl } = context.getters.endpoints;
 
         const { status, articles, message } = await fetch(
-          `${queryUrl}&q=${query}`,
+          `${queryUrl}&q=${encodeURI(query)}`,
         ).then((res) => res.json());
 
         if (status === 'ok') {
@@ -108,7 +109,7 @@ export default {
           throw new Error(message);
         }
       } catch (error) {
-        context.dispatch('dialog/isShown', { isShown: true }, { root: true });
+        context.dispatch('dialog/toggle', { isShown: true }, { root: true });
         context.dispatch(
           'dialog/message',
           { message: error.message, title: 'Failed to search articles' },
@@ -116,6 +117,10 @@ export default {
         );
       }
       return state;
+    },
+    async editHeadline(context, headline) {
+      // this can be preseved to interact with server
+      context.commit('editHeadline', headline);
     },
   },
   mutations: {
@@ -144,12 +149,25 @@ export default {
         state.searchResult = indexedArticles;
       }
     },
+    editHeadline(state, headline) {
+      const { newHeadline, publishedAt } = headline;
+      const index = state.articles.findIndex(
+        (article) => article.publishedAt === publishedAt,
+      );
+      if (index > -1) {
+        state.articles[index].title = newHeadline;
+      }
+    },
   },
   getters: {
     endpoints(state) {
       return state.endpoints;
     },
     articles(state) {
+      if (!state.articles.length) {
+        // use only in testing
+        return localArticles.articles;
+      }
       return state.articles;
     },
     sources(state) {

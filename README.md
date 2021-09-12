@@ -1,4 +1,5 @@
 # jb-engine
+<a href="https://jb-engine.netlify.app/" target="_blank">Demo</a>
 
 ## Project setup
 ```
@@ -127,7 +128,7 @@ This second step focuses on retrieving and managing data via a public API.
 
 #### App Security 
 1. Security strategy isn't carefully concerned, as there's no backend structure to refer. In this case, the API key is exposed in the frontend code directly.
-2. However, XXS and scripting injection could be an issue when allowing users to edit contents, especially if this app is considered a CMS. 
+2. However, XXS and scripting injection could be an issue when allowing users to edit contents, especially if this app is considered a CMS (Content Management System). 
 
 
 ### Concerns and uncetainties

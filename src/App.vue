@@ -11,6 +11,11 @@
         <router-link to="/"><h1 class="white--text">NEWS</h1></router-link>
       </div>
       <v-spacer></v-spacer>
+      <div>
+        <a href="https://github.com/allenlin90/jb-engine" target="_blank">
+          <v-icon>mdi-github</v-icon>
+        </a>
+      </div>
     </v-app-bar>
 
     <v-main app>

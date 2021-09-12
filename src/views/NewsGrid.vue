@@ -22,27 +22,36 @@
         cols="12"
         sm="6"
         md="4"
-        v-for="(post, index) in articlesToRender"
+        v-for="({
+          title,
+          publishedAt,
+          urlToImage,
+          author,
+          source,
+          url,
+          content,
+          description,
+        },
+        index) in articlesToRender"
         :key="`n${index}`"
       >
         <news-card
-          :title="post.title"
-          :subtitle="parseDateString(post.publishedAt)"
-          :img="post.urlToImage"
-          :content="
-            post.content
-              ? post.content
-              : post.description
-              ? post.description
-              : ''
-          "
           :newsId="`n${index}`"
+          :title="title"
+          :subtitle="parseDateString(publishedAt)"
+          :content="content ? content : description ? description : ''"
+          :description="description"
+          :author="author"
+          :url="url"
+          :publishedAt="publishedAt"
+          :img="urlToImage"
+          :source="source"
         ></news-card>
       </v-col>
     </v-row>
     <v-row v-else>
       <v-col>
-        <h1>Oops... there is nothing to show</h1>
+        <h1 class="text-center">Oops... there is nothing to show</h1>
       </v-col>
     </v-row>
     <v-btn
@@ -129,13 +138,13 @@ export default {
   },
   async mounted() {
     if (!this.articles.legnth) {
-      await this.getArticles();
+      // await this.getArticles();
     }
     this.$store.dispatch('overlay');
 
     this.rotate = true;
     if (!this.sources.length) {
-      await this.getSources();
+      // await this.getSources();
     }
     this.rotate = false;
 
