@@ -8,7 +8,7 @@ export default {
     };
   },
   actions: {
-    isShown(context, { isShown }) {
+    toggle(context, { isShown }) {
       context.commit('isShown', { isShown });
     },
     message(context, payload) {

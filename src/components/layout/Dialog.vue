@@ -2,45 +2,45 @@
   <v-dialog v-model="isShown" width="500" id="dialog">
     <v-card>
       <v-card-title class="text grey lighten-2">
-        {{ title }}
+        <slot name="title">{{ title }}</slot>
       </v-card-title>
-      <v-card-text class="mt-3">{{ message }}</v-card-text>
+      <v-card-text class="mt-3">
+        <slot>{{ message }}</slot>
+      </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="primary" text @click="closeDialog">
           Close
         </v-btn>
+        <slot name="action"></slot>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   computed: {
     isShown: {
       get() {
-        return this.$store.getters['dialog/isShown'];
+        return this.isShown;
       },
       set(value) {
-        this.$store.dispatch({ type: 'dialog/isShown', isShown: value });
+        this.toggle({ isShown: value });
       },
     },
-    message() {
-      return this.$store.getters['dialog/message'];
-    },
-    title() {
-      return this.$store.getters['dialog/title'];
-    },
+    ...mapGetters('dialog', ['message', 'title', 'isShown']),
   },
   methods: {
     closeDialog() {
-      this.$store.dispatch({
-        type: 'dialog/isShown',
+      this.toggle({
         isShown: false,
       });
     },
+    ...mapActions('dialog', ['toggle']),
   },
 };
 </script>
