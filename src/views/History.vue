@@ -1,6 +1,6 @@
 <template>
   <v-container fluid :fill-height="!hasRecords" class="align-start">
-    <v-row dense :justify="hasRecords ? 'between' : 'center'">
+    <v-row dense :justify="hasRecords ? 'space-between' : 'center'">
       <v-col cols="6"
         ><h1 :class="{ 'text-center': !hasRecords, 'text-start': hasRecords }">
           History
@@ -39,7 +39,16 @@
                     <v-col cols="3"
                       >{{ getTimestamp(record.timestamp) }}
                     </v-col>
-                    <v-col cols="8">{{ record.to }} </v-col>
+                    <v-col cols="8">
+                      <router-link
+                        v-if="!isExternal(record.to)"
+                        :to="record.to"
+                        >{{ record.to }}</router-link
+                      >
+                      <a v-else :href="record.to" target="_blank">{{
+                        record.to
+                      }}</a>
+                    </v-col>
                     <v-col cols="1" class="d-flex justify-end">
                       <v-icon
                         class="d-block"
@@ -120,6 +129,9 @@ export default {
     recordList(date) {
       // localStorage.removeItem('hitstory');
       return this.records[date];
+    },
+    isExternal(url) {
+      return url.includes('https://');
     },
   },
   beforeMount() {

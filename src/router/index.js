@@ -52,12 +52,13 @@ const router = new VueRouter({
   routes,
 });
 
-router.afterEach((to, from) => {
+router.beforeEach((to, from, next) => {
   store.dispatch('history/history', {
     to: to.path,
     from: from.path,
     timestamp: new Date(),
   });
+  next();
 });
 
 export default router;
